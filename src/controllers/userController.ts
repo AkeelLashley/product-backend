@@ -3,6 +3,6 @@ const users = [
   { id: 2, name: "John" },
 ];
 
-export const getAllUsers = (req, res) => {
+export const getAllUsers = (req: any, res: any) => {
   res.status(200).send(users);
 };
