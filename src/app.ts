@@ -1,29 +1,17 @@
 import express from "express";
 
+import todoRouter from "./routes/todoRoutes";
+import userRouter from "./routes/userRoutes";
 const app = express();
 
 // MIDDLEWARE
 app.use(express.json({ limit: "10kb" }));
 
 // ROUTES
-const todos = [
-  { id: 1, title: "coding" },
-  { id: 2, title: "cleaning" },
-];
+// localhost:8000/todos
+app.use("/todos", todoRouter);
 
-app.get("/todos", (req, res) => {
-  res.status(200).send(todos);
-});
-
-app.post("/todos", (req, res) => {
-  const { title } = req.body;
-
-  const newTodo = {
-    id: todos.length + 1,
-    title, //title: title
-  };
-  todos.push(newTodo);
-  res.status(201).json(newTodo);
-});
+// localhost:8000/users
+app.use("/users", userRouter);
 
 export default app;
