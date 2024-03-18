@@ -2,14 +2,12 @@ import Todo from "../models/todoModel";
 
 export const getAllTodos = async (req: any, res: any) => {
   try {
-    const todos = await Todo.find();
+    const data = await Todo.find();
 
     res.status(200).json({
       status: "success",
-      results: todos.length,
-      data: {
-        todos,
-      },
+      results: data.length,
+      data,
     });
   } catch (err) {
     res.status(400).json({

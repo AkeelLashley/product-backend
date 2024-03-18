@@ -8,10 +8,10 @@ const app = express();
 app.use(express.json({ limit: "10kb" }));
 
 // ROUTES
-// localhost:8000/todos
 app.use("/todos", todoRouter);
-
-// localhost:8000/users
 app.use("/users", userRouter);
+app.get("/", (req, res) => {
+  res.status(200).send("Welcome to Our Express Server!!!!");
+});
 
 export default app;
