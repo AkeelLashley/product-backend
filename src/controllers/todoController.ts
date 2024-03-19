@@ -1,8 +1,9 @@
 import Todo from "../models/todoModel";
+import { Request, Response } from "express";
 
-export const getAllTodos = async (req: any, res: any) => {
+export const getAllTodos = async (req: Request, res: Response) => {
   try {
-    const data = await Todo.find();
+    const data = await Todo.find({});
 
     res.status(200).json({
       status: "success",
@@ -20,7 +21,6 @@ export const getAllTodos = async (req: any, res: any) => {
 export const addTodo = async (req: any, res: any) => {
   try {
     const newTodo = await Todo.create(req.body);
-
     res.status(200).json({
       status: "success",
       data: {
@@ -34,3 +34,6 @@ export const addTodo = async (req: any, res: any) => {
     });
   }
 };
+
+// Fetch a single product using a similar approach to above
+// const singleTodo = await Todo.findById(req.params.id);

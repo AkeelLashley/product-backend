@@ -8,6 +8,6 @@ const router = express.Router();
 router.route("/").get(getAllTodos).post(addTodo);
 
 // localhost:8000/todos/:id
-// router.route("/:id").get(getAllTodos);
+// router.route("/:id").get(getTodo);
 
 export default router;
