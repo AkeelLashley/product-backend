@@ -37,3 +37,18 @@ export const addTodo = async (req: any, res: any) => {
 
 // Fetch a single product using a similar approach to above
 // const singleTodo = await Todo.findById(req.params.id);
+export const getTodo = async (req: Request, res: Response) => {
+  try {
+    const data = await Todo.findById(req.params.id);
+
+    res.status(200).json({
+      status: "success",
+      data,
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: "fail",
+      message: err,
+    });
+  }
+};

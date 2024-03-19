@@ -1,6 +1,6 @@
 import express from "express";
 
-import { getAllTodos, addTodo } from "../controllers/todoController";
+import { getAllTodos, addTodo, getTodo } from "../controllers/todoController";
 
 const router = express.Router();
 
@@ -8,6 +8,6 @@ const router = express.Router();
 router.route("/").get(getAllTodos).post(addTodo);
 
 // localhost:8000/todos/:id
-// router.route("/:id").get(getTodo);
+router.route("/:id").get(getTodo);
 
 export default router;

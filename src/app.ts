@@ -10,7 +10,7 @@ app.use(express.json({ limit: "10kb" }));
 app.use(express.urlencoded({ extended: true, limit: "10kb" }));
 app.use(
   cors({
-    origin: "https://aparnastore.netlify.app/",
+    origin: "http://localhost:5173, www.productfrontend.com",
   })
 );
 
